@@ -46,39 +46,49 @@
 		</div>
 		<hr>
 		<div id='container'>
-			Violations
+			Admins
 		<FORM METHOD="LINK" ACTION="adddormer" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
 		<div id='container2'>
-			EDIT VIOLATIONS<br>
+			EDIT ADMIN<br>
 			<?php $this->load->library('form_validation');?>
 			
 			<?php echo validation_errors(); ?>
 
-			<?php echo form_open('home/editviolation') ?>
+			<?php echo form_open('home/editadmin2') ?>
 
 			<?php
-			$result=mysql_query("SELECT * FROM violations WHERE violator = '" . ($_GET['violator']). "'") or die(mysql_error());
+			$result=mysql_query("SELECT * FROM admin WHERE admin_id = " . ($_GET['admin_id']). "") or die(mysql_error());
 			
 			$row = mysql_fetch_array($result);
 			
 			
-			echo '<label for="name">Name</label>
-			<input type="input" name="name"  value="'. $row['name'] .' " /><br />
+			echo '<label for="username">Username</label>
+			<input type="input" name="username"  value="'. $row['username'] .' " readonly/><br />
 			
-			<label for="details">Details</label>
-			<input type="input" name="details"  value="'. $row['details'] .' " /><br />
+			<label for="password">Password</label>
+			<input type="input" name="password"  value="" /><br />
 			
-			<label for="violator" style = "visibility: hidden;position: absolute;left: -100px; top:-100px">Old Violator</label>
-			<input type="input" name="orig_violator"  value="'.$row['violator'] .' "  style = "visibility: hidden;position: absolute;left: -100px; top:-100px"/>
+			<label for="first_name">First Name</label>
+			<input type="input" name="first_name"  value="'. $row['first_name'] .' " /><br />
 			
-			<label for="vdate">Vdate</label>
-			<input type="input" name="vdate"  value="'. $row['vdate'] .' " /><br />
+			<label for="middle_name">Middle Name</label>
+			<input type="input" name="middle_name"  value="'. $row['middle_name'] .' " /><br />
 			
-			<label for="violator">Violator</label>
-			<input type="input" name="violator"  value="'. $row['violator'] .' " /><br />
+			<label for="last_name">Last Name</label>
+			<input type="input" name="last_name"  value="'. $row['last_name'] .' " /><br />
 
-			<input type="submit" name="submit" value="Edit violation" />
+			<label for="position">Position</label>
+			<input type="input" name="position"  value="'.$row['position'] .' " /><br />
+			
+			
+			<label for="admin_id" style = "visibility: hidden;position: absolute;left: -100px; top:-100px">Old Admin ID</label>
+			<input type="input" name="orig_admin_id"  value="'.$row['admin_id'] .' "  style = "visibility: hidden;position: absolute;left: -100px; top:-100px"/>
+			
+			<label for="contact_number">Contact Number</label>
+			<input type="input" name="contact_number"  value="'.$row['contact_number'] .' " /><br />
+			
+			<input type="submit" name="submit" value="Edit dormer" />
 			';
 			?>
 

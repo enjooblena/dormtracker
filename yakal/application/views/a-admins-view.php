@@ -34,8 +34,7 @@
    <div id='welcome'>
    Welcome, admin <?php echo $_SESSION['user']; ?>!
    <br>
-   		<FORM METHOD="LINK" ACTION="home/settings" align='right'><INPUT TYPE="submit" VALUE="Settings"></FORM>
-		<FORM METHOD="LINK" ACTION="home/logout" align='right'><INPUT TYPE="submit" VALUE="Logout"></FORM>
+   		<FORM METHOD="LINK" ACTION="logout" align='right'><INPUT TYPE="submit" VALUE="Logout"></FORM>
    </div>
    <hr>
 		<div id='tabs'>
@@ -51,7 +50,17 @@
 		<FORM METHOD="LINK" ACTION="addadmin" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
 		
-		
+		<?php
+			$result=mysql_query("SELECT * FROM admin") or die(mysql_error());
+
+			while($row = mysql_fetch_array($result))
+			  {
+			  echo $row['last_name'] . " " . $row['first_name']. " " . $row['middle_name'] . "    ";
+			  echo "<a href = 'editadmin?admin_id=" . $row['admin_id']. "'>Edit Admin</a>   ";
+			  echo "<a href = 'deleteadmin?username=" . $row['username']. "'>Delete Admin</a> ";
+			  echo "<br>";
+			  }
+		?>		
 		
 	<script>
 	</script>

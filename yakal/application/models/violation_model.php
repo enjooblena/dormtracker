@@ -23,7 +23,8 @@ class Violation_model extends CI_Model {
 			'name' => $this->input->post('name'),
 			'details' => $this->input->post('details'),
 			'vdate' => $this->input->post('vdate'),
-			'violator' => $this->input->post('violator')
+			'violator' => $this->input->post('violator'),
+			'orig_violator' => $this->input->post('orig_violator')
 		);
 
 		mysql_query("UPDATE violations SET name='". $data['name'] . "' WHERE violator= '". $data['orig_violator'] . "'") or die(mysql_error());

@@ -38,18 +38,7 @@ class Dormer_model extends CI_Model {
 			'type' => 0
 		);
 		
-		echo "this is ". $data['username'];
-		echo "pass is " . $data['password'];
 		mysql_query("UPDATE account SET password='".$data['password']. "' WHERE username= '". $data['username'] . "'") or die(mysql_error());
-		 
-		echo " success!";
-		
-		 // $this->db->update('account', $data);
-		
-		
-		
-		
-		
 		
 	}
 	
@@ -87,9 +76,7 @@ class Dormer_model extends CI_Model {
 		mysql_query("UPDATE dormer SET birthday='". $data['birthday'] . "' WHERE student_number= '". $data['orig_stud'] . "'") or die(mysql_error());
 		mysql_query("UPDATE dormer SET permanent_add='". $data['permanent_add'] . "' WHERE student_number= '". $data['orig_stud'] . "'") or die(mysql_error());
 		mysql_query("UPDATE dormer SET student_number='". $data['student_number'] . "' WHERE student_number= '". $data['orig_stud'] . "'") or die(mysql_error());
-		//return $this->db->update('dormer', $data);
 		
-	
 	}
 	
 	public function set_dormer()

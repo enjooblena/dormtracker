@@ -34,16 +34,15 @@
    <div id='welcome'>
    Welcome, admin <?php echo $_SESSION['user']; ?>!
    <br>
-   		<FORM METHOD="LINK" ACTION="home/settings" align='right'><INPUT TYPE="submit" VALUE="Settings"></FORM>
-		<FORM METHOD="LINK" ACTION="home/logout" align='right'><INPUT TYPE="submit" VALUE="Logout"></FORM>
+   		<FORM METHOD="LINK" ACTION="logout" align='right'><INPUT TYPE="submit" VALUE="Logout"></FORM>
    </div>
    <hr>
 		<div id='tabs'>
-		<FORM METHOD="LINK" ACTION="home/aannouncements" align='right'><INPUT TYPE="submit" VALUE="Home"></FORM>
-		<FORM METHOD="LINK" ACTION="home/aadmins" align='right'><INPUT TYPE="submit" VALUE="Admins"></FORM>
-		<FORM METHOD="LINK" ACTION="home/adormers" align='right'><INPUT TYPE="submit" VALUE="Dormers"></FORM>
-		<FORM METHOD="LINK" ACTION="home/aviolations" align='right'><INPUT TYPE="submit" VALUE="Violations"></FORM>
-		<FORM METHOD="LINK" ACTION="home/aevents" align='right'><INPUT TYPE="submit" VALUE="Events"></FORM>
+		<FORM METHOD="LINK" ACTION="aannouncements" align='right'><INPUT TYPE="submit" VALUE="Home"></FORM>
+		<FORM METHOD="LINK" ACTION="aadmins" align='right'><INPUT TYPE="submit" VALUE="Admins"></FORM>
+		<FORM METHOD="LINK" ACTION="adormers" align='right'><INPUT TYPE="submit" VALUE="Dormers"></FORM>
+		<FORM METHOD="LINK" ACTION="aviolations" align='right'><INPUT TYPE="submit" VALUE="Violations"></FORM>
+		<FORM METHOD="LINK" ACTION="aevents" align='right'><INPUT TYPE="submit" VALUE="Events"></FORM>
 		</div>
 		<hr>
 		<div id='container'>
@@ -65,7 +64,7 @@
 			
 			
 			echo '<label for="username">Username</label>
-			<input type="input" name="username"  value="'. $row['username'] .' " /><br />
+			<input type="input" name="username"  value="'. $row['username'] .' " readonly /><br />
 			
 			<label for="password">Password</label>
 			<input type="input" name="password"  value="" /><br />

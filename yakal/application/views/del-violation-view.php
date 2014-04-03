@@ -51,6 +51,8 @@
 		</div>
 		
 		<?php
+			$result=mysql_query("DELETE FROM violations WHERE violator = '" . ($_GET['violator']). "'") or die(mysql_error());
+			
 			$result=mysql_query("SELECT * FROM violations") or die(mysql_error());
 
 			while($row = mysql_fetch_array($result))

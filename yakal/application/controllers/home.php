@@ -63,6 +63,11 @@ class Home extends CI_Controller {
  {
 	$this->load->view('add-admin-view');
  }
+ function editadmin()
+ {
+	$this->load->view('edit-admin-view');
+ }
+ 
  function editdormer()
  {
 	$this->load->view('edit-dormer-view');
@@ -103,6 +108,34 @@ class Home extends CI_Controller {
 	}
  }
  
+ function editviolation()
+ {
+	$this->load->model('violation_model');
+	$this->load->helper('form');
+	$this->load->library('form_validation');
+	
+	$data['title'] = 'Edit violation report';
+	
+	$this->form_validation->set_rules('name', 'Name', 'required');
+	$this->form_validation->set_rules('details', 'Details', 'required');
+	$this->form_validation->set_rules('vdate', 'Vdate', 'required');
+	$this->form_validation->set_rules('violator', 'Violator', 'required');
+	
+	if ($this->form_validation->run() === FALSE)
+	{
+		$this->load->view('edit-violation-view', $data);
+	}
+	else
+	{	
+		$this->violation_model->edit_violation();
+		$this->load->view('success');
+	} 
+ }
+ 
+ function deleteviolation()
+ {
+	$this->load->view('del-violation-view');
+ }
  /*function viewadmins()
  {
 	$this->load->view('view_admins');
