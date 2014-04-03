@@ -45,9 +45,24 @@
 		<FORM METHOD="LINK" ACTION="aviolations" align='right'><INPUT TYPE="submit" VALUE="Violations"></FORM>
 		<FORM METHOD="LINK" ACTION="aevents" align='right'><INPUT TYPE="submit" VALUE="Events"></FORM>
 		</div>
+		<hr>
 		<div id='container'>
-			Announcements!
+			Dormers
+		<FORM METHOD="LINK" ACTION="adddormer" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
+		
+		<?php
+			$result=mysql_query("SELECT * FROM dormer") or die(mysql_error());
+
+			while($row = mysql_fetch_array($result))
+			  {
+			  echo $row['last_name'] . " " . $row['first_name']. " " . $row['middle_name'] . "    ";
+			  echo "<a href = 'editdormer?student_number=" . $row['student_number']. "'>Edit Dormer</a>   ";
+			  echo "<a href = 'deletedormer?username=" . $row['username']. "'>Delete Dormer</a> ";
+			  echo "<a href = 'addviolation?username=" . $row['username']. "'>Add Violation</a> ";
+			  echo "<br>";
+			  }
+		?>
 		
 		
 		

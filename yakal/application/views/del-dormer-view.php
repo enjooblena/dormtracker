@@ -32,7 +32,7 @@
  </head>
  <body>
    <div id='welcome'>
-   Welcome, admin <?php echo $username; ?>!
+   Welcome, admin <?php echo $_SESSION['user']; ?>!
    <br>
    		<FORM METHOD="LINK" ACTION="home/settings" align='right'><INPUT TYPE="submit" VALUE="Settings"></FORM>
 		<FORM METHOD="LINK" ACTION="home/logout" align='right'><INPUT TYPE="submit" VALUE="Logout"></FORM>
@@ -45,9 +45,25 @@
 		<FORM METHOD="LINK" ACTION="home/aviolations" align='right'><INPUT TYPE="submit" VALUE="Violations"></FORM>
 		<FORM METHOD="LINK" ACTION="home/aevents" align='right'><INPUT TYPE="submit" VALUE="Events"></FORM>
 		</div>
-		<div id='main_pane'>
-		Insert Content Here
+		<hr>
+		<div id='container'>
+			Dormers
+		<FORM METHOD="LINK" ACTION="adddormer" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
+		
+		<?php
+			$result=mysql_query("DELETE FROM account WHERE username = '" . ($_GET['username']). "'") or die(mysql_error());
+			
+			$result=mysql_query("SELECT * FROM dormer") or die(mysql_error());
+
+			while($row = mysql_fetch_array($result))
+			  {
+			  echo $row['last_name'] . " " . $row['first_name']. " " . $row['middle_name'] . "    ";
+			  echo "<a href = 'editdormer?student_number=" . $row['student_number']. "'>Edit Dormer</a>   ";
+			  echo "<a href = 'deletedormer?username=" . $row['username']. "'>Delete Dormer</a>";
+			  echo "<br>";
+			  }
+		?>
 		
 		
 		

@@ -32,7 +32,7 @@
  </head>
  <body>
    <div id='welcome'>
-   Welcome, admin <?php echo $username; ?>!
+   Welcome, admin <?php echo $_SESSION['user']; ?>!
    <br>
    		<FORM METHOD="LINK" ACTION="home/settings" align='right'><INPUT TYPE="submit" VALUE="Settings"></FORM>
 		<FORM METHOD="LINK" ACTION="home/logout" align='right'><INPUT TYPE="submit" VALUE="Logout"></FORM>
@@ -45,10 +45,35 @@
 		<FORM METHOD="LINK" ACTION="home/aviolations" align='right'><INPUT TYPE="submit" VALUE="Violations"></FORM>
 		<FORM METHOD="LINK" ACTION="home/aevents" align='right'><INPUT TYPE="submit" VALUE="Events"></FORM>
 		</div>
-		<div id='main_pane'>
-		Insert Content Here
+		<hr>
+		<div id='container'>
+			Violations
+		<FORM METHOD="LINK" ACTION="addviolation" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
-		
+		<div id='container2'>
+			ADD VIOLATION<br>
+			<?php $this->load->library('form_validation');?>
+			
+			<?php echo validation_errors(); ?>
+
+			<?php echo form_open('home/createviolation') ?>
+
+			<label for="name">Name</label>
+			<input type="input" name="name" /><br />			
+
+			<label for="details">Details</label>
+			<input type="input" name="details" /><br />	
+			
+			<label for="vdate">Date</label>
+			<input type="input" name="vdate" /><br />
+
+			<label for="violator">Violator</label>
+			<input type="input" name="violator" /><br />
+
+			<input type="submit" name="submit" value="Create violation" />
+			
+
+		</div>
 		
 		
 	<script>

@@ -45,9 +45,23 @@
 		<FORM METHOD="LINK" ACTION="aviolations" align='right'><INPUT TYPE="submit" VALUE="Violations"></FORM>
 		<FORM METHOD="LINK" ACTION="aevents" align='right'><INPUT TYPE="submit" VALUE="Events"></FORM>
 		</div>
+		<hr>
 		<div id='container'>
-			Announcements!
+			Violations
+		<FORM METHOD="LINK" ACTION="addviolation" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
+		
+		<?php
+			$result=mysql_query("SELECT * FROM violations") or die(mysql_error());
+
+			while($row = mysql_fetch_array($result))
+			  {
+			  echo $row['vdate'] . " " . $row['name']. " " . $row['details'] . " " . $row['violator'] . "        ";
+			  echo "<a href = 'editviolation?violator=" . $row['violator']. "'>Edit</a>   ";
+			  echo "<a href = 'deleteviolation?violator=" . $row['violator']. "'>Delete</a>  ";
+			  echo "<br>";
+			  }
+		?>
 		
 		
 		

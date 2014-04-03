@@ -32,21 +32,23 @@
  </head>
  <body>
    <div id='welcome'>
-   Welcome, admin <?php echo $username; ?>!
+   Welcome, admin <?php echo $_SESSION['user']; ?>!
    <br>
    		<FORM METHOD="LINK" ACTION="home/settings" align='right'><INPUT TYPE="submit" VALUE="Settings"></FORM>
 		<FORM METHOD="LINK" ACTION="home/logout" align='right'><INPUT TYPE="submit" VALUE="Logout"></FORM>
    </div>
    <hr>
 		<div id='tabs'>
-		<FORM METHOD="LINK" ACTION="home/aannouncements" align='right'><INPUT TYPE="submit" VALUE="Home"></FORM>
-		<FORM METHOD="LINK" ACTION="home/aadmins" align='right'><INPUT TYPE="submit" VALUE="Admins"></FORM>
-		<FORM METHOD="LINK" ACTION="home/adormers" align='right'><INPUT TYPE="submit" VALUE="Dormers"></FORM>
-		<FORM METHOD="LINK" ACTION="home/aviolations" align='right'><INPUT TYPE="submit" VALUE="Violations"></FORM>
-		<FORM METHOD="LINK" ACTION="home/aevents" align='right'><INPUT TYPE="submit" VALUE="Events"></FORM>
+		<FORM METHOD="LINK" ACTION="aannouncements" align='right'><INPUT TYPE="submit" VALUE="Home"></FORM>
+		<FORM METHOD="LINK" ACTION="aadmins" align='right'><INPUT TYPE="submit" VALUE="Admins"></FORM>
+		<FORM METHOD="LINK" ACTION="adormers" align='right'><INPUT TYPE="submit" VALUE="Dormers"></FORM>
+		<FORM METHOD="LINK" ACTION="aviolations" align='right'><INPUT TYPE="submit" VALUE="Violations"></FORM>
+		<FORM METHOD="LINK" ACTION="aevents" align='right'><INPUT TYPE="submit" VALUE="Events"></FORM>
 		</div>
-		<div id='main_pane'>
-		Insert Content Here
+		<hr>
+		<div id='container'>
+			Admins
+		<FORM METHOD="LINK" ACTION="addadmin" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
 		
 		
