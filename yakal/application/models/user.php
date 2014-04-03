@@ -4,8 +4,8 @@ Class User extends CI_Model
 {
  function login($username, $password)
  {
-   $this -> db -> select('admin_id, username, password');
-   $this -> db -> from('dorm_admin');
+   $this -> db -> select('username, password, type');
+   $this -> db -> from('account');
    $this -> db -> where('username', $username);
    $this -> db -> where('password', MD5($password));
    $this -> db -> limit(1);
@@ -18,7 +18,7 @@ Class User extends CI_Model
    }
    else
    {
-     return false;
+	   return False;
    }
  }
 }

@@ -14,7 +14,13 @@ class Home extends CI_Controller {
    {
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
-     $this->load->view('home_view', $data);
+	 $data['type'] = $session_data['type'];
+	 if($data['type'] == 1) {
+		$this->load->view('admin_view', $data);
+	 } else {
+		$this->load->view('dormer_view', $data);
+	 }
+
    }
    else
    {
@@ -29,7 +35,10 @@ class Home extends CI_Controller {
    session_destroy();
    redirect('home', 'refresh');
  }
-
+ function aannouncements()
+ {
+	$this->load->view('a-announcements-view');
+ }
 }
 
 ?>
