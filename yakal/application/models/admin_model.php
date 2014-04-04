@@ -49,8 +49,8 @@ class Admin_model extends CI_Model {
 			'first_name' => $this->input->post('first_name'),
 			'middle_name' => $this->input->post('middle_name'),
 			'last_name' => $this->input->post('last_name'),
-			'position' => $this->input->post('position'),
-			'contact_number' => $this->input->post('contact_number'),
+			'position' => $this->input->post('room'),
+			'contact_number' => $this->input->post('student_number'),
 			'orig_admin_id' => $this->input->post('orig_admin_id')		
 		);
 

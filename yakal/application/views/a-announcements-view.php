@@ -47,19 +47,7 @@
 		<hr>
 		<div id='container'>
 			Announcements!
-		<FORM METHOD="LINK" ACTION="addannouncement" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
-		
-		<?php
-			$result=mysql_query("SELECT * FROM announcements") or die(mysql_error());
-
-			while($row = mysql_fetch_array($result))
-			  {
-			  echo "<table><tr>" . $row['title'] . "</tr><br>";
-			  echo "<tr>" . $row['details']. "</tr><br>";
-			  echo "<tr> posted by: " . $row['author'] . ", " . $row['vdate'] . "</tr></table>";
-			  }
-		?>
 		
 		
 		

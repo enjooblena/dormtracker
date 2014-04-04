@@ -46,20 +46,20 @@
 		</div>
 		<hr>
 		<div id='container'>
-			Admins
-		<FORM METHOD="LINK" ACTION="addadmin" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
+			Dormers
+		<FORM METHOD="LINK" ACTION="adddormer" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
 		
 		<?php
 			$result=mysql_query("DELETE FROM account WHERE username = '" . ($_GET['username']). "'") or die(mysql_error());
 			
-			$result=mysql_query("SELECT * FROM admin") or die(mysql_error());
+			$result=mysql_query("SELECT * FROM dormer") or die(mysql_error());
 
 			while($row = mysql_fetch_array($result))
 			  {
 			  echo $row['last_name'] . " " . $row['first_name']. " " . $row['middle_name'] . "    ";
-			  echo "<a href = 'editadmin?admin_id=" . $row['admin_id']. "'>Edit Admin</a>   ";
-			  echo "<a href = 'deleteadmin?username=" . $row['username']. "'>Delete Admin</a>";
+			  echo "<a href = 'editdormer?student_number=" . $row['student_number']. "'>Edit Dormer</a>   ";
+			  echo "<a href = 'deletedormer?username=" . $row['username']. "'>Delete Dormer</a>";
 			  echo "<br>";
 			  }
 		?>

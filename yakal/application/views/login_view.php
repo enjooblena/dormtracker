@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title><?php echo (isset($title)) ? $title : "Yakal Monitoring System" ?> </title>
+	<title><?php echo (isset($title)) ? $title : "My Dorm" ?> </title>
 	
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,14 +29,6 @@
 	body {
         margin-top: 60px;
     }
-    
-    #centered {
-	width: 805px;
-	tex-align: left;
-	padding:0;
-	margin: 0 auto;
-	
-	}
 
     .fa-home{
         font-size: 40px;
@@ -67,8 +59,7 @@
             <div class="l-box pure-u-1 pure-u-lrg-1-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                    	<table id="centered"><tr><td><img scr="yakal_logo.jpg"></td></tr></table>
-                        <h1 class="my-dorm">Yakal Residence Hall<br>Monitoring System</h1>
+                        <h1 class="my-dorm"><i class="fa fa-home"></i> MyDorm</h1>
                         <h2 class="name-up">University of the Philippines Diliman</h2>
                     </div>
                     <div class="container-fluid">
@@ -95,6 +86,9 @@
                             <div class="form-group">
                                 <div class="col-sm-10">
                                 <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
                                 </div>
                                 </div>
                             </div>
@@ -113,6 +107,10 @@
         </div>
 
     <!-- /.container -->
+
+    <!-- JavaScript -->
+    <script src="tttttjs/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
 </div>
 </body>
 

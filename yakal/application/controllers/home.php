@@ -16,9 +16,9 @@ class Home extends CI_Controller {
      $data['username'] = $session_data['username'];
 	 $data['type'] = $session_data['type'];
 	 if($data['type'] == 1) {
-		$this->load->view('a-announcements-view', $data);
+		$this->load->view('admin_view', $data);
 	 } else {
-		$this->load->view('d-announcements-view', $data);
+		$this->load->view('dormer_view', $data);
 	 }
 
    }
@@ -28,7 +28,7 @@ class Home extends CI_Controller {
      redirect('login', 'refresh');
    }
  }
- 
+
  function logout()
  {
    $this->session->unset_userdata('logged_in');
@@ -39,27 +39,6 @@ class Home extends CI_Controller {
  {
 	$this->load->view('a-announcements-view');
  }
- function dannouncements()
- {
-	$this->load->view('d-announcements-view');
- }
- 
- function dviewprofile()
- {
-	$this->load->view('d-profile-view');
- }
- 
- function devents()
- {
- 	$this->load->view('d-events-view');
- }
- 
- function dviolations()
- {
- 	$this->load->view('d-violations-view');
- 
- }
- 
  function aadmins()
  {
 	$this->load->view('a-admins-view');
@@ -84,47 +63,9 @@ class Home extends CI_Controller {
  {
 	$this->load->view('add-admin-view');
  }
- 
- function addannouncement()
- {
- 	$this->load->view('add-announcement-view');
- }
  function editadmin()
  {
 	$this->load->view('edit-admin-view');
- }
- 
- function editadmin2()
- {
-
-	$this->load->model('admin_model');
-	$this->load->helper('form');
-	$this->load->library('form_validation');
-
-	$data['title'] = 'Edit admin profile';
-	
-	$this->form_validation->set_rules('username', 'Username', 'required');
-	$this->form_validation->set_rules('password', 'Password', 'required');	
-	$this->form_validation->set_rules('first_name', 'First Name', 'required');
-	$this->form_validation->set_rules('middle_name', 'Middle Name', 'required');
-	$this->form_validation->set_rules('last_name', 'Last Name', 'required');
-	$this->form_validation->set_rules('position', 'Position', 'required');
-	$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
-	
-
-	if ($this->form_validation->run() === FALSE)
-	{
-		$this->load->view('edit-admin-view', $data);
-	}
-	else
-	{	
-		$this->admin_model->edit_account();
-		$this->admin_model->edit_admin();
-		$this->load->view('a-admins-view');
-	} 
- 
- 
- 
  }
  
  function editdormer()
@@ -135,11 +76,6 @@ class Home extends CI_Controller {
  function deletedormer()
  {
 	$this->load->view('del-dormer-view');
- }
- 
- function deleteadmin()
- {
-	$this->load->view('del-admin-view');
  }
  
  function addviolation()
@@ -168,36 +104,9 @@ class Home extends CI_Controller {
 	{	
 
 		$this->violation_model->set_violation();
-		$this->load->view('a-violations-view');
+		$this->load->view('success');
 	}
  }
- 
- function createannouncement()
- {
- 	$this->load->model('announcement_model');
-	$this->load->helper('form');
-	$this->load->library('form_validation');
-	
-	$data['title'] = 'Create announcement report';
-	
-	$this->form_validation->set_rules('title', 'Title', 'required');
-	$this->form_validation->set_rules('details', 'Details', 'required');
-	$this->form_validation->set_rules('author', 'Author', 'required');	
-	$this->form_validation->set_rules('vdate', 'Vdate', 'required');
-
-	
-	if ($this->form_validation->run() === FALSE)
-	{
-		$this->load->view('add-announcement-view', $data);
-	}
-	else
-	{	
-
-		$this->announcement_model->set_announcement();
-		$this->load->view('a-announcements-view');
-	}
- }
- 
  
  function editviolation()
  {
@@ -219,18 +128,13 @@ class Home extends CI_Controller {
 	else
 	{	
 		$this->violation_model->edit_violation();
-		$this->load->view('a-violations-view');
+		$this->load->view('success');
 	} 
  }
  
  function deleteviolation()
  {
 	$this->load->view('del-violation-view');
- }
- 
- function deleteannouncement()
- {
- 	$this->load->view('del-announcement-view');
  }
  /*function viewadmins()
  {
@@ -272,7 +176,7 @@ class Home extends CI_Controller {
 	{	
 		$this->dormer_model->edit_account();
 		$this->dormer_model->edit_dormer();
-		$this->load->view('a-dormers-view');
+		$this->load->view('success');
 	} 
  
  
@@ -310,7 +214,7 @@ public function createdormer()
 	{	
 		$this->dormer_model->set_account();
 		$this->dormer_model->set_dormer();
-		$this->load->view('a-dormers-view');
+		$this->load->view('success');
 	}
 }
 
@@ -338,7 +242,7 @@ public function create_admin()
 	{	
 		$this->admin_model->set_account();
 		$this->admin_model->set_admin();
-		$this->load->view('a-admins-view');
+		$this->load->view('success');
 	}
 }
  
