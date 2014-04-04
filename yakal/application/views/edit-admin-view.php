@@ -47,7 +47,7 @@
 		<hr>
 		<div id='container'>
 			Admins
-		<FORM METHOD="LINK" ACTION="adddormer" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
+		<FORM METHOD="LINK" ACTION="addadmin" align='right'><INPUT TYPE="submit" VALUE="Add"></FORM>
 		</div>
 		<div id='container2'>
 			EDIT ADMIN<br>
@@ -88,7 +88,7 @@
 			<label for="contact_number">Contact Number</label>
 			<input type="input" name="contact_number"  value="'.$row['contact_number'] .' " /><br />
 			
-			<input type="submit" name="submit" value="Edit dormer" />
+			<input type="submit" name="submit" value="Edit admin" />
 			';
 			?>
 
